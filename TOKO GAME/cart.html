@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Toko Kaset Game</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="Toko Kaset Game Logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Your Cart</h1>
+        <div id="cart-container"></div>
+        <div id="cart-total"></div>
+        <button onclick="checkout()">Proceed to Checkout</button>
+    </main>
+    <footer>
+        <p>&copy; 2024 Toko Kaset Game. All rights reserved.</p>
+    </footer>
+    <script src="js/cart.js"></script>
+    <script>
+        // Fungsi untuk memuat keranjang dari localStorage dan menampilkan isinya
+        function loadCart() {
+            const storedCart = localStorage.getItem('cart');
+            if (storedCart) {
+                cart = JSON.parse(storedCart);
+                updateCart();
+            }
+        }
+
+        // Fungsi checkout (Anda bisa menambahkan logika lebih lanjut untuk pemrosesan pembayaran)
+        function checkout() {
+            alert("Proceeding to checkout. Implement payment processing here.");
+            // Kosongkan keranjang setelah checkout
+            cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCart();
+        }
+
+        // Panggil loadCart saat halaman dimuat
+        window.onload = loadCart;
+    </script>
+</body>
+</html>
